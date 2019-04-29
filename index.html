@@ -23,19 +23,39 @@
     
     <body>
         <h1 class="title">Quadratic Equation Solver</h1>
-        <form action="calculation.php" method="post">
+        <form method="post">
         <table><tr>
             <th><h1>a</h1></th><th><h1>b</h1></th><th><h1>c</h1></th></tr>
-            <tr><td><input type="text" name="a">  x^2  +     </td>
-            <td><input type="text" name="b">  x  +  </td>
-            <td><input type="text" name="c"></td>
+            <tr><td><input type="text" name="a" id="a">  x^2  +     </td>
+            <td><input type="text" name="b" id="b">  x  +  </td>
+            <td><input type="text" name="c" id="c"></td>
              <td>  =  0</td></tr>
         <br>
-            <tr><td></td><td><br><br><input type="submit" class="yellow" value= "FIND THE SOLUTIONS"></td></tr>
+            <tr><td></td><td><br><br>   <button onclick="cal()" class="yellow">FIND THE SOLUTIONS</button>
+     </td></tr>
             </table>
             
            
         </form>
+        
+        <script>
+        function cal(){
+            var a=parseInt(document.getElementById("a").value);
+            var b=parseInt(document.getElementById("b").value);
+             var c=parseInt(document.getElementById("c").value);
+            var sq=Math.sqrt(b*b - (4 * a * c));
+            
+            
+            if((b*b - (4 * a * c)) < 0){
+                document.write("<h1>*** no solutions ***<h1>");
+            }else{
+            
+            var x1= ((-b + sq)/(2 * a));
+              var x2= ((-b - sq)/(2 * a));
+            document.write("<h1>x =",x1, "<br>and", "<br>x =",x2,"<h1>");
+            }
+        }
+        </script>
     
     </body>
 </html>
